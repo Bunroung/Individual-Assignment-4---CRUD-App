@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+    <h1>Edit User</h1>
+    <form method="post" th:object="${userCreate}">
+    	<div class="mb-3">
+            <label class="form-label">ID</label>
+            <div class="col-sm-8">
+                <input readonly class="form-control-plaintext" th:value="${users.id}">
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Email address</label>
+            <div class="col-sm-8">
+                <input class="form-control" th:field="${userCreate.email}">
+    		<p th:if="${#fields.hasErrors('email')}" th:errorclass="text-danger" th:errors="${userCreate.email}"></p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Name</label>
+            <div class="col-sm-8">
+                <input class="form-control" th:field="${userCreate.name}">
+    		<p th:if="${#fields.hasErrors('name')}" th:errorclass="text-danger" th:errors="${userCreate.name}"></p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Password</label>
+            <div class="col-sm-8">
+                <input class="form-control" th:field="${userCreate.password}">
+    		<p th:if="${#fields.hasErrors('password')}" th:errorclass="text-danger" th:errors="${userCreate.password}"></p>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Number</label>
+            <div class="col-sm-8">
+                <input class="form-control" th:field="${userCreate.number}">
+    		<p th:if="${#fields.hasErrors('number')}" th:errorclass="text-danger" th:errors="${userCreate.number}"></p>
+            </div>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <div>
+            <div class="mb-3">
+                <a class="btn btn-outline-primary" href="/users" role="button">Cancel</a>
+            </div>
+        </div>
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
